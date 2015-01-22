@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		1830A3351A7055E2007A53AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1830A3341A7055E2007A53AC /* main.m */; };
 		1830A3381A7055E2007A53AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1830A3371A7055E2007A53AC /* AppDelegate.m */; };
-		1830A33B1A7055E2007A53AC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1830A33A1A7055E2007A53AC /* ViewController.m */; };
 		1830A33E1A7055E2007A53AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1830A33C1A7055E2007A53AC /* Main.storyboard */; };
 		1830A3401A7055E2007A53AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1830A33F1A7055E2007A53AC /* Images.xcassets */; };
 		1830A3431A7055E2007A53AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1830A3411A7055E2007A53AC /* LaunchScreen.xib */; };
 		1830A34F1A7055E2007A53AC /* ZaHunterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1830A34E1A7055E2007A53AC /* ZaHunterTests.m */; };
+		1830A35A1A706B9A007A53AC /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1830A3591A706B9A007A53AC /* MapViewController.m */; };
+		1830A35D1A706BBA007A53AC /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1830A35C1A706BBA007A53AC /* RootViewController.m */; };
+		1830A35F1A706D3C007A53AC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1830A35E1A706D3C007A53AC /* MapKit.framework */; };
+		1830A3611A706D42007A53AC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1830A3601A706D42007A53AC /* CoreLocation.framework */; };
+		1830A3641A706EE8007A53AC /* Pizzeria.m in Sources */ = {isa = PBXBuildFile; fileRef = 1830A3631A706EE8007A53AC /* Pizzeria.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +36,20 @@
 		1830A3341A7055E2007A53AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1830A3361A7055E2007A53AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1830A3371A7055E2007A53AC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1830A3391A7055E2007A53AC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1830A33A1A7055E2007A53AC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1830A33D1A7055E2007A53AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1830A33F1A7055E2007A53AC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1830A3421A7055E2007A53AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1830A3481A7055E2007A53AC /* ZaHunterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZaHunterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1830A34D1A7055E2007A53AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1830A34E1A7055E2007A53AC /* ZaHunterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZaHunterTests.m; sourceTree = "<group>"; };
+		1830A3581A706B9A007A53AC /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		1830A3591A706B9A007A53AC /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		1830A35B1A706BBA007A53AC /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		1830A35C1A706BBA007A53AC /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		1830A35E1A706D3C007A53AC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1830A3601A706D42007A53AC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1830A3621A706EE8007A53AC /* Pizzeria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pizzeria.h; sourceTree = "<group>"; };
+		1830A3631A706EE8007A53AC /* Pizzeria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pizzeria.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1830A3611A706D42007A53AC /* CoreLocation.framework in Frameworks */,
+				1830A35F1A706D3C007A53AC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +75,8 @@
 		1830A3261A7055E2007A53AC = {
 			isa = PBXGroup;
 			children = (
+				1830A3601A706D42007A53AC /* CoreLocation.framework */,
+				1830A35E1A706D3C007A53AC /* MapKit.framework */,
 				1830A3311A7055E2007A53AC /* ZaHunter */,
 				1830A34B1A7055E2007A53AC /* ZaHunterTests */,
 				1830A3301A7055E2007A53AC /* Products */,
@@ -83,9 +97,13 @@
 			children = (
 				1830A3361A7055E2007A53AC /* AppDelegate.h */,
 				1830A3371A7055E2007A53AC /* AppDelegate.m */,
-				1830A3391A7055E2007A53AC /* ViewController.h */,
-				1830A33A1A7055E2007A53AC /* ViewController.m */,
+				1830A35B1A706BBA007A53AC /* RootViewController.h */,
+				1830A35C1A706BBA007A53AC /* RootViewController.m */,
+				1830A3581A706B9A007A53AC /* MapViewController.h */,
+				1830A3591A706B9A007A53AC /* MapViewController.m */,
 				1830A33C1A7055E2007A53AC /* Main.storyboard */,
+				1830A3621A706EE8007A53AC /* Pizzeria.h */,
+				1830A3631A706EE8007A53AC /* Pizzeria.m */,
 				1830A33F1A7055E2007A53AC /* Images.xcassets */,
 				1830A3411A7055E2007A53AC /* LaunchScreen.xib */,
 				1830A3321A7055E2007A53AC /* Supporting Files */,
@@ -219,8 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1830A33B1A7055E2007A53AC /* ViewController.m in Sources */,
+				1830A35A1A706B9A007A53AC /* MapViewController.m in Sources */,
 				1830A3381A7055E2007A53AC /* AppDelegate.m in Sources */,
+				1830A3641A706EE8007A53AC /* Pizzeria.m in Sources */,
+				1830A35D1A706BBA007A53AC /* RootViewController.m in Sources */,
 				1830A3351A7055E2007A53AC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

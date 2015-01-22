@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MapViewController.h
 //  ZaHunter
 //
 //  Created by Tewodros Wondimu on 1/21/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MapViewController : UIViewController
 
 @end
-
