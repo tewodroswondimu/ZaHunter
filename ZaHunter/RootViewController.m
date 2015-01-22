@@ -21,7 +21,8 @@
 
 @implementation RootViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     self.myLocationManager = [CLLocationManager new];
@@ -32,26 +33,31 @@
     [self.myLocationManager startUpdatingLocation];
 }
 
+
+//---------------------------------    Table View    ----------------------------------
+#pragma mark - Table View
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.pizzerias.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@""];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    cell.textLabel.text = [[self.pizzerias objectAtIndex:indexPath.row] name];
     return cell;
 }
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"EROOR %@", error);
-}
-
+//-------------------------------    Location Manager    --------------------------------
+#pragma mark - Location Manager
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     self.currentLocation = locations.firstObject;
-    [self.myLocationManager stopUpdatingLocation];
+    if (self.currentLocation != nil)
+    {
+        [self.myLocationManager stopUpdatingLocation];
+
+    }
     [self findPizzerias:self.currentLocation];
 }
 
@@ -64,8 +70,14 @@
     MKLocalSearch *search = [[MKLocalSearch alloc] initWithRequest:request];
     [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
         self.pizzerias = [NSMutableArray arrayWithArray:response.mapItems];
+        [self.tableView reloadData];
     }];
-    NSLog(@"%@\n", [[self.pizzerias firstObject] name]);
+
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"EROOR %@", error);
 }
 
 @end

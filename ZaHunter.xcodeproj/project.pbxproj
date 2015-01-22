@@ -72,6 +72,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F27E6141A70804C004DE688 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1830A35B1A706BBA007A53AC /* RootViewController.h */,
+				1830A35C1A706BBA007A53AC /* RootViewController.m */,
+				1830A3581A706B9A007A53AC /* MapViewController.h */,
+				1830A3591A706B9A007A53AC /* MapViewController.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		1830A3261A7055E2007A53AC = {
 			isa = PBXGroup;
 			children = (
@@ -97,10 +108,7 @@
 			children = (
 				1830A3361A7055E2007A53AC /* AppDelegate.h */,
 				1830A3371A7055E2007A53AC /* AppDelegate.m */,
-				1830A35B1A706BBA007A53AC /* RootViewController.h */,
-				1830A35C1A706BBA007A53AC /* RootViewController.m */,
-				1830A3581A706B9A007A53AC /* MapViewController.h */,
-				1830A3591A706B9A007A53AC /* MapViewController.m */,
+				0F27E6141A70804C004DE688 /* Views */,
 				1830A33C1A7055E2007A53AC /* Main.storyboard */,
 				1830A3621A706EE8007A53AC /* Pizzeria.h */,
 				1830A3631A706EE8007A53AC /* Pizzeria.m */,
@@ -364,6 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ZaHunter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -374,6 +383,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ZaHunter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -432,6 +442,7 @@
 				1830A3541A7055E2007A53AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1830A3551A7055E2007A53AC /* Build configuration list for PBXNativeTarget "ZaHunterTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +451,7 @@
 				1830A3571A7055E2007A53AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
