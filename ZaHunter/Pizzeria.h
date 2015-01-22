@@ -11,13 +11,15 @@
 
 @interface Pizzeria : MKMapItem
 
-- (instancetype)initWithPlacemark:(MKPlacemark *)placemark;
+- (instancetype)initWithMapItem:(MKMapItem *)item;
 
+@property NSString *pizzariaName;
 @property float longitude;
 @property float latitude;
 @property CLLocation *location;
 @property int timeSpentInMinutes;
 @property double rating;
+@property float distanceFromCurrentLocation;
 //@property MKPointAnnotation *pin;
 
 @end

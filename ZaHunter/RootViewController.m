@@ -8,13 +8,15 @@
 
 #import "RootViewController.h"
 #import "Pizzeria.h"
+#import "PizzariaSearch.h"
 
-@interface RootViewController () <CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface RootViewController () <CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, PizzariaSearchDelegate>
 
 
 @property CLLocationManager *myLocationManager;
 @property CLLocation *currentLocation;
 @property NSMutableArray *pizzerias;
+@property PizzariaSearch *pizzariaSearch;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -24,7 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    // Set up PizzariaSearch object so we can search for pizzarias
+    self.pizzariaSearch = [PizzariaSearch new];
+    self.pizzariaSearch.delegate = self;
+    // Set up LocationManager object
     self.myLocationManager = [CLLocationManager new];
     [self.myLocationManager requestWhenInUseAuthorization];
     self.myLocationManager.delegate = self;
@@ -34,17 +39,45 @@
 }
 
 
+//-----------------------------    Reorder Pizzarias    ----------------------------------
+#pragma mark - Other
+- (void)setDistanceFromCurrentLocation:(Pizzeria *)location
+{
+    location.distanceFromCurrentLocation = [location.location distanceFromLocation:self.currentLocation];
+}
+
+
+//-------------------------------    Pizzaria Search    ----------------------------------
+#pragma mark - Pizzaria Search
+- (void)didFinishPizzariaSearchWithMutableArray:(NSMutableArray *)array
+{
+    self.pizzerias = [NSMutableArray arrayWithArray:array];
+    for (Pizzeria *pizzaria in self.pizzerias)
+    {
+        [self setDistanceFromCurrentLocation:pizzaria];
+    }
+
+    NSSortDescriptor *firstDescriptor = [[NSSortDescriptor alloc] initWithKey:@"distanceFromCurrentLocation" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:firstDescriptor];
+
+    [self.pizzerias sortUsingDescriptors:sortDescriptors];
+    [self.tableView reloadData];
+}
+
 //---------------------------------    Table View    ----------------------------------
 #pragma mark - Table View
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.pizzerias.count;
+    return 4;
+//    return self.pizzerias.count;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = [[self.pizzerias objectAtIndex:indexPath.row] name];
+    Pizzeria *currentPizzaria = [self.pizzerias objectAtIndex:indexPath.row];
+    cell.textLabel.text = [currentPizzaria pizzariaName];
+    float currentDistance = [[currentPizzaria location] distanceFromLocation:self.currentLocation];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%f km", currentDistance/1000];
     return cell;
 }
 
@@ -56,23 +89,8 @@
     if (self.currentLocation != nil)
     {
         [self.myLocationManager stopUpdatingLocation];
-
+        [self.pizzariaSearch findPizzarias:self.currentLocation];
     }
-    [self findPizzerias:self.currentLocation];
-}
-
-- (void)findPizzerias:(CLLocation *)location
-{
-    MKLocalSearchRequest *request = [MKLocalSearchRequest new];
-    request.naturalLanguageQuery = @"Pizza";
-    request.region = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.09, 0.09));
-
-    MKLocalSearch *search = [[MKLocalSearch alloc] initWithRequest:request];
-    [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
-        self.pizzerias = [NSMutableArray arrayWithArray:response.mapItems];
-        [self.tableView reloadData];
-    }];
-
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
